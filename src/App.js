@@ -1,25 +1,138 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import DataGrids from "./DataGrid";
+//import db from "./firebase";
+//import TableTest from "./TableTest";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// const [customerName, setCustomerName] = useState("");
+// const [customerPassword, setCustomerPassword] = useState("");
+// const [customersData, setCustomersData] = useState([]);
+// const [updatedCustomerName, setUpdatedCustomerName] = useState("");
+// const [updatedCustomerPassword, setUpdatedCustomerPassword] = useState("");
+// const [dataIdToBeUpdated, setDataIdToBeUpdated] = useState("");
+
+// useEffect(() => {
+// 	db.collection("customersData").onSnapshot((snapshot) => {
+// 	setCustomersData(
+// 		snapshot.docs.map((doc) => ({
+// 		id: doc.id,
+// 		data: doc.data(),
+// 		}))
+// 	);
+// 	});
+// }, []);
+
+// const submit = (e) => {
+// 	e.preventDefault();
+// 	db.collection("customersData").add({
+// 	name: customerName,
+// 	password: customerPassword,
+// 	});
+
+// 	setCustomerName("");
+// 	setCustomerPassword("");
+// };
+
+// const updateData = (e) => {
+// 	e.preventDefault();
+// 	db.collection("customersData").doc(dataIdToBeUpdated).update({
+// 	name: updatedCustomerName,
+// 	password: updatedCustomerPassword,
+// 	});
+
+// 	setUpdatedCustomerPassword("");
+// 	setUpdatedCustomerName("");
+// 	setDataIdToBeUpdated("");
+// };
+
+// const deleteData = (id) => {
+// 	db.collection("customersData").doc(id).delete()	;
+// };
+
+return (
+<>
+{/* 	
+	<div className="App">
+	{!dataIdToBeUpdated ? (
+		<div className="App__form">
+		<input
+			type="text"
+			placeholder="Name"
+			value={customerName}
+			onChange={(e) => setCustomerName(e.target.value)}
+		/>
+		<input
+			type="text"
+			placeholder="Password"
+			value={customerPassword}
+			onChange={(e) => setCustomerPassword(e.target.value)}
+		/>
+		<button onClick={submit}>Submit</button>
+		</div>
+	) : (
+		<div className="App__Updateform">
+		<input
+			type="text"
+			placeholder="Name"
+			value={updatedCustomerName}
+			onChange={(e) => setUpdatedCustomerName(e.target.value)}
+		/>
+		<input
+			type="text"
+			placeholder="Password"
+			value={updatedCustomerPassword}
+			onChange={(e) => setUpdatedCustomerPassword(e.target.value)}
+		/>
+		<button onClick={updateData}>Update</button>
+		</div>
+	)}
+
+	<div className="App__DataDisplay">
+		<table>
+		<tr>
+			<th>NAME</th>
+			<th>PASSWORD</th>
+			<th>Update</th>
+			<th>Delete</th>
+		</tr>
+
+		{customersData?.map(({ id, data }) => (
+			<tr key={id}>
+			<td>{data.name}</td>
+			<td>{data.password}</td>
+			<td>
+				<button
+				onClick={() => {
+					setDataIdToBeUpdated(id);
+					setUpdatedCustomerPassword(data.password);
+					setUpdatedCustomerName(data.name);
+				}}
+				>
+				Update
+				</button>
+			</td>
+
+			<td>
+				<button
+				onClick={() => {
+					deleteData(id);
+				}}
+				>
+				Delete
+				</button>
+			</td>
+			</tr>
+		))}
+		</table>
+	</div>
+	</div>
+
+	<TableTest /> */}
+	<DataGrids />
+	</>
+);
+
 }
 
 export default App;

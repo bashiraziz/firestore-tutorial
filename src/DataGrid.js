@@ -9,17 +9,18 @@ const DataGrids = () => {
   const [loading, setLoading] = useState([]);
   useEffect(() => {
   db.collection("customersData").onSnapshot((snapshot) => {
+   
    setTableData(
     snapshot.docs.map((doc) => ({
     id: doc.id,
-    data: doc.data(),
+    ...doc.data(),
     }))
    );
    });
    setLoading(false);
   }, []);
 
-  const columns = [
+  const columns =   [
    { field: 'id', headerName: 'ID', width: 300 },
    { field: 'name', headerName: 'Name', width: 300 },
    { field: 'password', headerName: 'Password', width: 600 }

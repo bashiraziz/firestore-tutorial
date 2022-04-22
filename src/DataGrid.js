@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { DataGrid } from '@mui/x-data-grid'
 import db from './firebase'
-const columns = [
-  { field: 'id', headerName: 'ID', width: 300 },
-  { field: 'name', headerName: 'Name', width: 300 },
-  { field: 'password', headerName: 'Password', width: 600 }
-]
+
 
 const DataGrids = () => {
 
-  const [tableData, setTableData] = useState({})
+  const [tableData, setTableData] = useState([])
   const [loading, setLoading] = useState([]);
   useEffect(() => {
   db.collection("customersData").onSnapshot((snapshot) => {
@@ -22,6 +18,12 @@ const DataGrids = () => {
    });
    setLoading(false);
   }, []);
+
+  const columns = [
+   { field: 'id', headerName: 'ID', width: 300 },
+   { field: 'name', headerName: 'Name', width: 300 },
+   { field: 'password', headerName: 'Password', width: 600 }
+ ]
 
   console.log(tableData)
 

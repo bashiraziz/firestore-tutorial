@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import DataGrids from "./DataGrid";
+import DataGrids2 from "./DataGrid2";
 //import db from "./firebase";
 //import TableTest from "./TableTest";
 
@@ -129,6 +130,7 @@ return (
 	</div>
 
 	<TableTest /> */}
+	<DataGrids2/>
 	<DataGrids />
 	</>
 );
